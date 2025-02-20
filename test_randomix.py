@@ -26,9 +26,9 @@ def test_split_key_with_shape():
     shape = (2, 3)
     keys = keyer(shape)
     assert keys is not None
-    assert isinstance(keys, tuple)
-    assert len(keys) == 6  # Since we split into 6 keys (2*3 keys)
-    for key in keys:
+    assert isinstance(keys, jax.Array)
+    assert keys.shape == shape  # Since we split into keys with the given shape
+    for key in jax.numpy.ravel(keys):
         assert jax.dtypes.issubdtype(key.dtype, jax.dtypes.prng_key)
 
 def test_key_uniqueness():
