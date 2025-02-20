@@ -24,6 +24,12 @@ dev = ["pytest"]
 "Homepage" = "https://github.com/tjltjl/randomix"
 "Repository" = "https://github.com/tjltjl/randomix"
 
+[tool.setuptools.packages]
+find = { where = ["randomix_package"] }
+
+[tool.setuptools.package-data]
+randomix_package = ["randomix.py"]
+
 [tool.pytest.ini_options]
 addopts = "-ra -q"
 testpaths = ["tests"]
