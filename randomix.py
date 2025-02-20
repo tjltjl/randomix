@@ -18,6 +18,6 @@ class Keyer:
             return new_key
         else:
             num_keys = jax.tree_util.tree_structure(shape).num_leaves
-            keys = random.split(self.key, num_keys + 1)
+            keys = random.split(self.key, num_keys)
             self.key = keys[-1]
             return tuple(keys[:-1])
