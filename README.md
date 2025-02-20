@@ -2,7 +2,10 @@
 
 Miscellaneous things related to jax and random numbers.
 
-Initially, just the Keyer class.
+For now, just the Keyer class.
+
+(This package is an experimenting with aider, uv, and
+what it takes to ship a pypi package)
 
 ## Keyer
 
@@ -21,6 +24,8 @@ Usage:
 
         more_keys = keyer((3, 2))  # Get keys with a shape
 
+Note that you should not pass a keyer around jit borders or vmap lambdas
+or anything like that; just pass the split keys.
+
 Open question: would it be convenient to just mirror *all* the `jax.random`
 methods that take key as an argument to this class?
-
