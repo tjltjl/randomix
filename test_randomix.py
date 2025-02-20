@@ -45,6 +45,8 @@ def test_shape_handling():
     keyer = Keyer(key)
     shape = (3,)
     keys = keyer(shape)
+    assert keys is not None
+    assert isinstance(keys, jax.Array)
     assert keys.shape == shape  # Since we split into keys with the given shape
     for key in jax.numpy.ravel(keys):
         assert jax.dtypes.issubdtype(key.dtype, jax.dtypes.prng_key)
