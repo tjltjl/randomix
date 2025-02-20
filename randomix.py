@@ -1,9 +1,16 @@
 import jax
 import jax.random as random
+from jax import dtypes
+
+def ensure_typed_key_array(key) -> jax.Array:
+    if dtypes.issubdtype(key.dtype, dtypes.prng_key):
+        return key
+    else:
+        raise TypeError("New-style typed JAX PRNG keys required")
 
 class Keyer:
     def __init__(self, key):
-        self.key = key
+        self.key = ensure_typed_key_array(key)
 
     def __call__(self, shape=None):
         if shape is None:
