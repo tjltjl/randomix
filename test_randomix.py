@@ -1,8 +1,7 @@
 import pytest
 import jax
 import jax.random as random
-from randomix_package.randomix import Keyer
-from hello import hello
+from randomix import Keyer
 
 def test_initialization():
     # Test if the Keyer object is initialized correctly
