@@ -45,6 +45,16 @@ def test_shape_handling():
     keyer = Keyer(key)
     shape = (3,)
     keys = keyer(shape)
-    assert len(keys) == 3  # Since we split into 3 keys
-    for key in keys:
+    assert keys.shape == shape  # Since we split into keys with the given shape
+    for key in jax.numpy.ravel(keys):
+        assert jax.dtypes.issubdtype(key.dtype, jax.dtypes.prng_key)
+
+def test_shape_handling_with_tuple():
+    # Test if the shape handling returns an array of keys in the shape given, not a tuple
+    key = random.key(0)
+    keyer = Keyer(key)
+    shape = (2, 3)
+    keys = keyer(shape)
+    assert keys.shape == shape  # Since we split into keys with the given shape
+    for key in jax.numpy.ravel(keys):
         assert jax.dtypes.issubdtype(key.dtype, jax.dtypes.prng_key)
