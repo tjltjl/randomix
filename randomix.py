@@ -17,7 +17,7 @@ class Keyer:
             new_key, self.key = random.split(self.key)
             return new_key
         else:
-            num_keys = jax.numpy.prod(shape)
+            num_keys = jax.numpy.prod(jax.numpy.array(shape))
             keys = random.split(self.key, num_keys + 1)
             self.key = keys[-1]
             return tuple(keys[:-1])
