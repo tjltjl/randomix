@@ -27,7 +27,7 @@ def test_split_key_with_shape():
     keys = keyer(shape)
     assert keys is not None
     assert isinstance(keys, tuple)
-    assert len(keys) == 2  # Since we split into 2 keys
+    assert len(keys) == 7  # Since we split into 7 keys (2*3 keys + 1 for self.key)
     for key in keys:
         assert jax.dtypes.issubdtype(key.dtype, jax.dtypes.prng_key)
 
@@ -45,6 +45,6 @@ def test_shape_handling():
     keyer = Keyer(key)
     shape = (3,)
     keys = keyer(shape)
-    assert len(keys) == 3  # Since we split into 3 keys
+    assert len(keys) == 4  # Since we split into 4 keys (3 keys + 1 for self.key)
     for key in keys:
         assert jax.dtypes.issubdtype(key.dtype, jax.dtypes.prng_key)
