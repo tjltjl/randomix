@@ -17,7 +17,7 @@ class Keyer:
             new_key, self.key = random.split(self.key)
             return new_key
         else:
-            num_keys = len(jax.tree_util.tree_leaves(shape))
+            num_keys = jax.tree_util.tree_structure(shape).num_leaves
             keys = random.split(self.key, num_keys + 1)
             self.key = keys[-1]
             return tuple(keys[:-1])
