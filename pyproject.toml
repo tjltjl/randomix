@@ -30,3 +30,5 @@ py-modules = ["randomix"]
 [tool.pytest.ini_options]
 addopts = "-ra -q"
 testpaths = ["tests"]
+[tool.pytest.ini_options]
+testpaths = ["."]
