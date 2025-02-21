@@ -10,7 +10,11 @@ def ensure_typed_key_array(key) -> jax.Array:
 
 class Keyer:
     """
-    A class to manage and split JAX PRNG keys.
+    A class to manage and split JAX PRNG keys using the new typed keys.
+
+    The new typed keys in JAX are represented as scalar arrays with a special RNG dtype that
+    satisfies `jnp.issubdtype(key.dtype, jax.dtypes.prng_key)`. This class ensures that the keys
+    are of the new typed format and provides methods to split them into sub-keys based on a given shape.
 
     Attributes:
         key (jax.Array): The current JAX PRNG key.
