@@ -7,6 +7,15 @@ For now, just the Keyer class.
 (This package is an experimenting with aider, uv, and
 what it takes to ship a pypi package)
 
+## New Typed Keys
+
+The new typed keys in JAX are represented as scalar arrays with a special RNG dtype that
+satisfies `jnp.issubdtype(key.dtype, jax.dtypes.prng_key)`. This library ensures that the keys
+are of the new typed format and provides methods to split them into sub-keys based on a given shape.
+
+For more information on the new typed keys, see the JAX documentation:
+[https://docs.jax.dev/en/latest/jep/9263-typed-keys.html#notes-for-jax-library-authors](https://docs.jax.dev/en/latest/jep/9263-typed-keys.html#notes-for-jax-library-authors)
+
 ## Keyer
 
 The `randomix.Keyer` class handles jax.random.PRNGKey state
