@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest"]
+dev = ["pytest", "twine"]
 
 [project.urls]
 "Homepage" = "https://github.com/tjltjl/randomix"
