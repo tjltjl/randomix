@@ -47,8 +47,7 @@ def test_shape_handling():
     assert keys is not None
     assert isinstance(keys, jax.Array)
     assert keys.shape == shape  # Since we split into keys with the given shape
-    for key in jax.numpy.ravel(keys):
-        assert jax.dtypes.issubdtype(key.dtype, jax.dtypes.prng_key)
+    assert jax.dtypes.issubdtype(keys.dtype, jax.dtypes.prng_key)
 
 def test_shape_handling_with_tuple():
     # Test if the shape handling returns an array of keys in the shape given, not a tuple
