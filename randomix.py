@@ -16,6 +16,9 @@ class Keyer:
     satisfies `jnp.issubdtype(key.dtype, jax.dtypes.prng_key)`. This class ensures that the keys
     are of the new typed format and provides methods to split them into sub-keys based on a given shape.
 
+    For more information on the new typed keys, see the JAX documentation:
+    https://docs.jax.dev/en/latest/jep/9263-typed-keys.html#notes-for-jax-library-authors
+
     Attributes:
         key (jax.Array): The current JAX PRNG key.
     """
