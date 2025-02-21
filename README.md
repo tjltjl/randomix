@@ -27,6 +27,8 @@ in other places as well).
 
 Usage:
 
+        key = jax.random.key(42)  # Create a PRNG key through the new Jax API
+
         keyer = randomix.Keyer(key)
 
         other_key = keyer()  # Split a new key, update key held inside keyer
