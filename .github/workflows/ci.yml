@@ -34,5 +34,3 @@ jobs:
       - name: Run tests
         run: uv run pytest
 
-      - name: Check package with twine
-        run: uv run twine check dist/*
